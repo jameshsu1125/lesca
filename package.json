@@ -1,6 +1,6 @@
 {
-	"name": "jh-react-loading-ui",
-	"description": "simple react component loading ui",
+	"name": "jh-tools",
+	"description": "js tools for dev",
 	"homepage": "",
 	"version": "1.0.0",
 	"main": "index.js",
@@ -11,7 +11,7 @@
 		"unused": "webpack --mode production --env.unused=true",
 		"deploy": "gh-pages -d dist"
 	},
-	"private": "true",
+	"private": "false",
 	"browserslist": {
 		"production": [
 			"last 5 version",
