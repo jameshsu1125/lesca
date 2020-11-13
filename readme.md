@@ -32,3 +32,17 @@ render(){
                             onend={ (base64)=>{} },
                             length='500'
 ```
+
+# Javascripts
+
+```
+    Sensor
+    UserAgent
+    TouchEvent
+    Facebook
+    EnterFrame
+    Hash
+    Http2Https
+    LocalStorage
+    Number
+```
