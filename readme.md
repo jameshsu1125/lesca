@@ -2,36 +2,19 @@
 
 # Usage
 
-```
-import { Loading } from 'lesca';
+` import { Loading } from 'lesca';
 
-constructor(){
-    this.state = { loading:true }
-}
+constructor(){ this.state = { loading:true } }
 
-append_loading(){
-    if(this.state.loading) <Loading />;
-}
+append_loading(){ if(this.state.loading) <Loading />; }
 
-render(){
-    return <>
-        {this.append_loading()}
-    </>
-}
+render(){ return ( <> {this.append_loading()} </> ); }
 
-```
+`
 
 # Components
 
-```
-    Loading      | props => style='dark' => ( 'dark', 'light' )
-    Qrcode       | props => url='https://github.com/jameshsu1125/'
-    OC           | props => dw='750'
-    InputCapture | props => txt='button Label',
-                            img={require('button.png')},
-                            onend={ (base64)=>{} },
-                            length='500'
-```
+` Loading | props => style='dark' => ( 'dark', 'light' ) Qrcode | props => url='https://github.com/jameshsu1125/' OC | props => dw='750' InputCapture | props => txt='button Label', img={require('button.png')}, onend={ (base64)=>{} }, length='500'`
 
 # Javascripts
 
