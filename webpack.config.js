@@ -1,74 +1,36 @@
-var p = process.env.NODE_ENV;
-console.log('****** NODE_ENV = ' + p + ' *******');
-
-const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env) => {
-	const config = {
-		entry: {
-			index: './index.js',
-		},
-		module: {
-			rules: [
-				{ test: /\.(js|jsx)$/, exclude: /node_modules/, use: 'babel-loader?retainLines=true' },
-				{ test: /\.less$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'] },
-				{ test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
-				{ test: /\.(png|jpg|gif|svg)$/, use: [{ loader: 'file-loader', options: { name: 'img/[path][name].[ext]', context: 'src' } }] },
-				{ test: /\.(ogv|mp4)$/, use: [{ loader: 'file-loader', options: { name: 'vid/[path][name].[ext]', context: 'src' } }] },
-				{ test: /\.(wav|mp3)$/, use: [{ loader: 'file-loader', options: { name: 'aud/[path][name].[ext]', context: 'src' } }] },
-				{ test: /\.(eot|woff|woff2|ttf)$/, use: [{ loader: 'file-loader', options: { name: 'font/[path][name].[ext]', context: 'src' } }] },
-			],
-		},
-		resolve: {
-			extensions: ['*', '.js', '.jsx'],
-			alias: {
-				LESCA: path.resolve(__dirname, 'src/LESCA/'),
-				UI: path.resolve(__dirname, 'src/LESCA/UI/'),
-				DEVICE: path.resolve(__dirname, 'src/LESCA/Device/'),
-				EVENT: path.resolve(__dirname, 'src/LESCA/Event/'),
-				UNIT: path.resolve(__dirname, 'src/LESCA/Unit/'),
-				SOCIAL: path.resolve(__dirname, 'src/LESCA/Social/'),
+module.exports = {
+	entry: path.join(__dirname, 'src/docs'),
+	output: {
+		path: path.join(__dirname, 'docs'),
+		filename: 'bundle.js',
+	},
+	module: {
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				use: 'babel-loader',
+				exclude: /node_modules/,
 			},
-		},
-		output: {
-			path: path.resolve(__dirname, 'dist/'),
-			filename: '[name].min.js',
-		},
-		plugins: [
-			new webpack.HotModuleReplacementPlugin(),
-			new webpack.DefinePlugin({
-				__REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })',
-			}),
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
 		],
-		optimization: {
-			minimize: p == 'production',
-			minimizer: [
-				new TerserPlugin({
-					sourceMap: false,
-					cache: true,
-					parallel: true,
-					extractComments: false,
-					terserOptions: { output: { comments: false } },
-				}),
-			],
-		},
-		devtool: 'cheap-inline-module-source-map',
-		devServer: {
-			contentBase: './dist',
-			hot: true,
-			host: '0.0.0.0',
-			port: 8080,
-			public: 'localhost:8080',
-			disableHostCheck: true,
-			https: false,
-		},
-		performance: {
-			hints: false,
-			maxEntrypointSize: 512000,
-			maxAssetSize: 512000,
-		},
-	};
-	return config;
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.join(__dirname, 'src/docs/index.html'),
+		}),
+	],
+	resolve: {
+		extensions: ['.js', '.jsx'],
+	},
+	devServer: {
+		contentBase: path.join(__dirname, 'docs'),
+		port: 8080,
+		stats: 'minimal',
+	},
 };
