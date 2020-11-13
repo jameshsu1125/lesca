@@ -206,5 +206,5 @@ import EnterFrame from './LESCA/Unit/EnterFrame';
 import Hash from './LESCA/Unit/Hash';
 import Http2Https from './LESCA/Unit/Http2https';
 import LocalStorage from './LESCA/Unit/LocalStorage';
-import Number from './LESCA/Unit/Number';
-export { EnterFrame, Hash, Http2Https, LocalStorage, Number };
+import Numbers from './LESCA/Unit/Numbers';
+export { EnterFrame, Hash, Http2Https, LocalStorage, Numbers };

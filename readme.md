@@ -2,30 +2,49 @@
 
 # Usage
 
-` import { Loading } from 'lesca';
+```javascript
+import { Loading } from 'lesca';
 
-constructor(){ this.state = { loading:true } }
+constructor(){
+    this.state = { loading:true }
+}
 
-append_loading(){ if(this.state.loading) <Loading />; }
+append_loading(){
+    if(this.state.loading) <Loading />;
+}
 
-render(){ return ( <> {this.append_loading()} </> ); }
+render(){
+    return (
+        <>
+            {this.append_loading()}
+        </>
+    );
+}
 
-`
+```
 
 # Components
 
-` Loading | props => style='dark' => ( 'dark', 'light' ) Qrcode | props => url='https://github.com/jameshsu1125/' OC | props => dw='750' InputCapture | props => txt='button Label', img={require('button.png')}, onend={ (base64)=>{} }, length='500'`
+```javascript
+    Loading      | props => style='dark' => ( 'dark', 'light' )
+    Qrcode       | props => url='https://github.com/jameshsu1125/'
+    OC           | props => dw='750'
+    InputCapture | props => txt='button Label',
+                            img={require('button.png')},
+                            onend={ (base64)=>{} },
+                            length='500'
+```
 
 # Javascripts
 
-```
-    Sensor
-    UserAgent
-    TouchEvent
-    Facebook
-    EnterFrame
-    Hash
-    Http2Https
-    LocalStorage
-    Number
+```javascript
+    Sensor       | Object => Motion, Orientation, OrientationChange
+    UserAgent    | Method => get, Facebook.is, Line.is, Ios.is, Android.is, Wechat.is
+    TouchEvent   | Method => init, add, remove, clear, destory
+    Facebook     | Method => init, status, login, logout, share, click
+    EnterFrame   | Method => init, add, destroy, stop, play
+    Hash         | Method => get, remove, removeAndGo, root, file
+    Http2Https   | Method => go
+    LocalStorage | Method => is, set, get, remove, clear, showAll
+    Numbers      | Method => Pad, Uid
 ```
