@@ -11,7 +11,6 @@
 		"unused": "webpack --mode production --env.unused=true",
 		"deploy": "gh-pages -d dist"
 	},
-	"private": "false",
 	"browserslist": {
 		"production": [
 			"last 5 version",
