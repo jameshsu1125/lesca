@@ -9,7 +9,7 @@
 		"dev": "concurrently \"npm run lib:watch\" \"npm run docs\"",
 		"rm": "rm -rf node_modules/ package-lock.json",
 		"deploy": "gh-pages -d dist",
-		"lib:watch": "babel src/lib -w -d lib --copy-files",
+		"watch": "babel src/lib -w -d lib --copy-files",
 		"docs:prod": "webpack --mode production"
 	},
 	"keywords": [],
@@ -46,5 +46,9 @@
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:yogaboll/react-npm-component-starter.git"
+	},
+	"dependencies": {
+		"exif-js": "^2.3.0",
+		"mobile-detect": "^1.4.4"
 	}
 }

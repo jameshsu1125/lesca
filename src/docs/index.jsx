@@ -1,10 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MyComponent from '../../lib';
+import { Qrcode, Sensor, InputCapture } from '../../lib';
 import './styles.css';
 
+console.log(Sensor);
 function Demo() {
-	return <MyComponent color='brown'>Wow what a button</MyComponent>;
+	return <InputCapture />;
 }
 
 render(<Demo />, document.getElementById('app'));

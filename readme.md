@@ -1,22 +1,34 @@
-[![dev by JamesHsu](https://img.shields.io/badge/Dev%20by-Jameshsu1125-green)](https://github.com/jameshsu1125/)
-[![made in Taiwan](https://img.shields.io/badge/Made%20in-Taiwan-orange)](https://github.com/jameshsu1125/)
+[![dev by JamesHsu](https://img.shields.io/badge/Dev%20by-Jameshsu1125-green)](https://github.com/jameshsu1125/) [![made in Taiwan](https://img.shields.io/badge/Made%20in-Taiwan-orange)](https://github.com/jameshsu1125/)
 
-### pre-install
-
-```
-$ [sudo] npm i webpack webpack-cli webpack-dev-server node-pre-gyp -g
-```
-
-### Test project
+# Usage
 
 ```
-$ npm start
+import { Loading } from 'lesca';
+
+constructor(){
+    this.state = { loading:true }
+}
+
+append_loading(){
+    if(this.state.loading) <Loading />;
+}
+
+render(){
+    return <>
+        {this.append_loading()}
+    </>
+}
+
 ```
 
-#### project run with http://localhost:8080
-
-### output to /dist
+# Components
 
 ```
-$ npm run op
+    Loading      | props => style='dark' => ( 'dark', 'light' )
+    Qrcode       | props => url='https://github.com/jameshsu1125/'
+    OC           | props => dw='750'
+    InputCapture | props => txt='button Label',
+                            img={require('button.png')},
+                            onend={ (base64)=>{} },
+                            length='500'
 ```
