@@ -10,7 +10,6 @@ module.exports = (env) => {
 	const config = {
 		entry: {
 			index: './src/index.js',
-			test: './src/index.js',
 		},
 		module: {
 			rules: [
