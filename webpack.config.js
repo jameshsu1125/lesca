@@ -3,13 +3,12 @@ console.log('****** NODE_ENV = ' + p + ' *******');
 
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const path = require('path');
 
 module.exports = (env) => {
 	const config = {
 		entry: {
-			index: './src/index.js',
+			index: './index.js',
 		},
 		module: {
 			rules: [
@@ -35,7 +34,7 @@ module.exports = (env) => {
 		},
 		output: {
 			path: path.resolve(__dirname, 'dist/'),
-			filename: 'js/[name].min.js',
+			filename: '[name].min.js',
 		},
 		plugins: [
 			new webpack.HotModuleReplacementPlugin(),
@@ -71,14 +70,5 @@ module.exports = (env) => {
 			maxAssetSize: 512000,
 		},
 	};
-	if (env && env.unused)
-		config.plugins.push(
-			new UnusedFilesWebpackPlugin({
-				globOptions: {
-					patterns: ['src/**/*.js', 'src/**/*.png', 'src/**/*.jpg'],
-					ignore: ['node_modules/**/*', 'dist/**/*', '*.json', '**/*.config.*', '*.md', 'src/LESCA/**/*'],
-				},
-			})
-		);
 	return config;
 };

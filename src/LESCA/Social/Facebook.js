@@ -1,4 +1,4 @@
-const Facebook = require('DEVICE/UserAgent').Facebook;
+const Facebook = require('./../Device/UserAgent').Facebook;
 
 module.exports = {
 	init: function (uid, { v = 'v8.0', callback = function () {}, onStatus = function () {} }) {
@@ -34,9 +34,6 @@ module.exports = {
 		return `https://graph.facebook.com/${this.response.id}/picture?width=600&height=600`;
 	},
 	status: function () {
-		const $ = require('jquery');
-		const Hash = require('UNIT/Get');
-
 		FB.getLoginStatus((e) => {
 			this.status = e.status;
 

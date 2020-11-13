@@ -1,6 +1,4 @@
-const gid = require('./../../Component/_config').gtag_id;
-
-export const gtag_install = () => {
+export const gtag_install = (gid) => {
 	const scriptId = 'ga-gtag';
 	window.gtagID = window.gtagID || gid;
 
