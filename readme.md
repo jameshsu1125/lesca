@@ -11,16 +11,16 @@ import { Key } from 'lesca';
 ```javascript
 lesca
  ┣ Loading => import { Loading } from 'lesca';
- ┃    ┗ props => style = 'dark'; // dark, light
+ ┃    ┗ props => style = 'dark';                          // or 'light'
  ┣ Qrcode => import { Qrcode } from 'lesca';
- ┃    ┗ props => url = 'https://www.exsample.com';
+ ┃    ┗ props => url = 'https://www.exsample.com';        // <img src='google qrcode url'/>
  ┣ Landscape => import { Landscape } from 'lesca';
- ┃    ┗ props => dw = 750; // viewport device-width
+ ┃    ┗ props => dw = 750;                                // viewport device-width
  ┗ InputCapture => import { InputCapture } from 'lesca';
-      ┣ props => txt='button Label';
-      ┣ props => img={ require('buttonImage.png') };
-      ┣ props => onend={ ( base64 )=>{} };
-      ┗ props => length='500';  // resize base64 image width
+      ┣ props => txt='button Label';                      // button Label
+      ┣ props => img={ require('buttonImage.png') };      // coustom image button
+      ┣ props => onend={ ( base64 )=>{} };                // success image convert to base64
+      ┗ props => length='500';                            // resize base64 image width
 ```
 
 # Javascripts
@@ -33,17 +33,17 @@ lesca
  ┃ ┃   ┣ Object | Sensor.Orientation => init({ callback }), on(LR, FB, Dir), remove();
  ┃ ┃   ┗ Object | Sensor.OrientationChange => init({ callback }), on(ang);
  ┃ ┗ UserAgent.js  => import { UserAgent } from 'lesca';
- ┃ ┃   ┣ function | get(tabletEqualDesktop = true) => return 'mobile' | 'desktop';
- ┃ ┃   ┣ function | Wechat.is() => ture/false;
- ┃ ┃   ┣ function | Facebook.is() => ture/false;
- ┃ ┃   ┣ function | Ios.is() => ture/false;
- ┃ ┃   ┣ function | Android.is() => ture/false;
- ┃ ┃   ┗ function | Line.is() => ture/false;
+ ┃ ┃   ┣ function | UserAgent.get( tabletEqualDesktop = true ) => return 'mobile'; // or 'desktop';
+ ┃ ┃   ┣ function | UserAgent.Wechat.is() => ture/false;
+ ┃ ┃   ┣ function | UserAgent.Facebook.is() => ture/false;
+ ┃ ┃   ┣ function | UserAgent.Ios.is() => ture/false;
+ ┃ ┃   ┣ function | UserAgent.Android.is() => ture/false;
+ ┃ ┃   ┗ function | UserAgent.Line.is() => ture/false;
  ┣ Event
  ┃ ┗ TouchEvent.js => import { TouchEvent } from 'lesca';
- ┃ ┃   ┣ function | ToushEvent.init(needDesktopEventCombine = true);
- ┃ ┃   ┣ function | ToushEvent.add(id = 'ID', fn = ()=>{} });
- ┃ ┃   ┣ function | ToushEvent.remove(id = 'ID');
+ ┃ ┃   ┣ function | ToushEvent.init( needDesktopEventCombine = true );
+ ┃ ┃   ┣ function | ToushEvent.add( id = 'ID', fn = () => {} });
+ ┃ ┃   ┣ function | ToushEvent.remove( id = 'ID' );
  ┃ ┃   ┣ function | ToushEvent.clear();
  ┃ ┃   ┗ function | ToushEvent.destory();
  ┣ Social
