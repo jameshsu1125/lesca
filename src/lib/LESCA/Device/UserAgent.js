@@ -1,5 +1,5 @@
 module.exports = {
-	get() {
+	get(tabletEqualDesktop = true) {
 		let MobileDetect = require('mobile-detect'),
 			m = new MobileDetect(window.navigator.userAgent);
 		this.m = m;
@@ -18,17 +18,16 @@ module.exports = {
 		 * console.log( m.match('playstation|xbox') ); // false
 		 */
 
-		if (m.tablet()) return 'desktop';
-		else if (m.mobile()) return 'mobile';
+		if (m.tablet()) {
+			if (tabletEqualDesktop) return 'desktop';
+			else return 'mobile';
+		} else if (m.mobile()) return 'mobile';
 		else return 'desktop';
 	},
 
 	Wechat: {
 		is() {
-			return (
-				navigator.userAgent.toLowerCase().match(/MicroMessenger/i) ==
-				'micromessenger'
-			);
+			return navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
 		},
 	},
 

@@ -71,8 +71,8 @@ class Qrcode extends Component {
 }
 
 import { OrientationChange } from './Sensor';
-import './orientationChange.less';
-class OC extends React.Component {
+import './Landscape.less';
+class Landscape extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { show: false };
@@ -190,7 +190,7 @@ class InputCapture extends React.Component {
 	}
 }
 
-export { Qrcode, Loading, OC, InputCapture };
+export { Qrcode, Loading, Landscape, InputCapture };
 
 import Sensor from './LESCA/Device/Sensor';
 import UserAgent from './LESCA/Device/UserAgent';
@@ -200,11 +200,14 @@ import TouchEvent from './LESCA/Event/TouchEvent';
 export { TouchEvent };
 
 import Facebook from './LESCA/Social/Facebook';
-export { Facebook };
+import Gtag from './LESCA/Social/Gtag';
+export { Facebook, Gtag };
 
 import EnterFrame from './LESCA/Unit/EnterFrame';
 import Hash from './LESCA/Unit/Hash';
 import Http2Https from './LESCA/Unit/Http2https';
 import LocalStorage from './LESCA/Unit/LocalStorage';
 import Numbers from './LESCA/Unit/Numbers';
-export { EnterFrame, Hash, Http2Https, LocalStorage, Numbers };
+import Dom2Json from './LESCA/Unit/Dom2Json';
+
+export { EnterFrame, Hash, Http2Https, LocalStorage, Numbers, Dom2Json };

@@ -26,7 +26,7 @@ module.exports = {
 	err() {
 		alert('您的瀏覽器不支援localStorage.\n請更換瀏覽器或是使用"非"無痕模式瀏覽');
 	},
-	showAll() {
+	printAll() {
 		var v = [],
 			k = Object.keys(localStorage),
 			i = k.length;

@@ -1,7 +1,7 @@
 const Facebook = require('./../Device/UserAgent').Facebook;
 
 module.exports = {
-	init: function (uid, { v = 'v8.0', callback = function () {}, onStatus = function () {} }) {
+	init(uid, { v = 'v8.0', callback = () => {}, onStatus = () => {} }) {
 		const self = this;
 		this.id = uid;
 		this.is = false;
@@ -30,17 +30,17 @@ module.exports = {
 			fjs.parentNode.insertBefore(js, fjs);
 		})(document, 'script', 'facebook-jssdk');
 	},
-	getPictureByID: function () {
+	getPictureByID() {
 		return `https://graph.facebook.com/${this.response.id}/picture?width=600&height=600`;
 	},
-	status: function () {
+	status() {
 		FB.getLoginStatus((e) => {
 			this.status = e.status;
 
 			switch (e.status) {
 				case 'not_authorized':
 					//console.log('未認證');
-					//this.login();
+					this.login();
 					break;
 
 				case 'connected':
@@ -53,20 +53,20 @@ module.exports = {
 
 				case 'unknown':
 					//console.log('未登入');
-					//this.login();
+					this.login();
 					break;
 			}
 		});
 	},
-	ready: function (id, name, token, imageURL) {
+	ready(id, name, token, imageURL) {
 		console.log(id, name);
 	},
-	logout: function () {
+	logout() {
 		FB.logout((e) => {
 			console.log(e);
 		});
 	},
-	share: function ({ id, redirect_uri, url, hash }) {
+	share({ id, redirect_uri, url, hash }) {
 		if (Facebook.is()) {
 			let p = {
 				method: 'share',

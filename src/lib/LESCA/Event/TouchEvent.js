@@ -1,14 +1,12 @@
 module.exports = {
 	db: {},
-	init(is) {
+	init(needDesktopEventCombine = true) {
 		this.fn = function (e) {
 			let n = e.target.localName;
-			if (e.cancelable)
-				if (!e.defaultPrevented)
-					if (n != 'input' && n != 'button' && n != 'select') e.preventDefault();
+			if (e.cancelable) if (!e.defaultPrevented) if (n != 'input' && n != 'button' && n != 'select') e.preventDefault();
 			this.get(e);
 		}.bind(this);
-		if (is) {
+		if (needDesktopEventCombine) {
 			document.addEventListener('mousedown', this.fn);
 		} else {
 			if (this.device() == 'mobile') {
