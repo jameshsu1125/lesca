@@ -22,7 +22,7 @@ export const gtag = function () {
 	window.dataLayer.push(arguments);
 };
 
-export const gtag_pv = function (title) {
+export const gtag_pv = function (title, gid) {
 	let id = window.gtagID || gid;
 	if (!id) return;
 	if (!gtag) return;
