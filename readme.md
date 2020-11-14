@@ -39,19 +39,19 @@ lesca
  ┃ ┃   ┣ Sensor.Orientation.init({ callback }) => callback(LR, FB, Dir), Sensor.Motion.destory();
  ┃ ┃   ┗ Sensor.OrientationChange.init({ callback }) => callback(ang), Sensor.Motion.destory();
  ┃ ┗ UserAgent.js  => import { UserAgent } from 'lesca';
- ┃ ┃   ┣ UserAgent.get( tabletEqualDesktop = true ) => return 'mobile'; // or 'desktop';
- ┃ ┃   ┣ UserAgent.Wechat.is() => ture/false;
- ┃ ┃   ┣ UserAgent.Facebook.is() => ture/false;
- ┃ ┃   ┣ UserAgent.Ios.is() => ture/false;
- ┃ ┃   ┣ UserAgent.Android.is() => ture/false;
- ┃ ┃   ┗ UserAgent.Line.is() => ture/false;
+ ┃     ┣ UserAgent.get( tabletEqualDesktop = true ) => return 'mobile'; // or 'desktop';
+ ┃     ┣ UserAgent.Wechat.is() => ture/false;
+ ┃     ┣ UserAgent.Facebook.is() => ture/false;
+ ┃     ┣ UserAgent.Ios.is() => ture/false;
+ ┃     ┣ UserAgent.Android.is() => ture/false;
+ ┃     ┗ UserAgent.Line.is() => ture/false;
  ┣ Event
  ┃ ┗ TouchEvent.js => import { TouchEvent } from 'lesca';
- ┃ ┃   ┣ ToushEvent.init( needDesktopEventCombine = true );
- ┃ ┃   ┣ ToushEvent.add( id = 'ID', fn = () => {} });
- ┃ ┃   ┣ ToushEvent.remove( id = 'ID' );
- ┃ ┃   ┣ ToushEvent.clear();
- ┃ ┃   ┗ ToushEvent.destory();
+ ┃     ┣ ToushEvent.init( needDesktopEventCombine = true );
+ ┃     ┣ ToushEvent.add( id = 'ID', fn = () => {} });
+ ┃     ┣ ToushEvent.remove( id = 'ID' );
+ ┃     ┣ ToushEvent.clear();
+ ┃     ┗ ToushEvent.destory();
  ┣ Social
  ┃ ┣ Facebook.js => import { Facebook } from 'lesca';
  ┃ ┃   ┣ Facebook.init(uid, { v = 'v8.0', callback = () => {}, onStatus = () => {} });
@@ -60,9 +60,9 @@ lesca
  ┃ ┃   ┣ Facebook.logout();
  ┃ ┃   ┗ Facebook.share({ id, redirect_uri, url, hash });
  ┃ ┗ Gtag.js => import { Gtag } from 'lesca';
- ┃ ┃   ┣ Gtag.gtag_install(gid);
- ┃ ┃   ┣ Gtag.gtag_pv(title);
- ┃ ┃   ┗ Gtag.gtag_event(title, description = '');
+ ┃     ┣ Gtag.gtag_install(gid);
+ ┃     ┣ Gtag.gtag_pv(title);
+ ┃     ┗ Gtag.gtag_event(title, description = '');
  ┗ Unit
    ┣ Dom2Json.js => import { Dom2Json } from 'lesca';
    ┃   ┗ Dom2Json(dom);
