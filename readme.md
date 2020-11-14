@@ -6,7 +6,7 @@
 import { Key } from 'lesca';
 ```
 
-# Components
+# UI Components
 
 ```javascript
 lesca
