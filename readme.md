@@ -1,4 +1,5 @@
 [![dev by JamesHsu](https://img.shields.io/badge/Dev%20by-Jameshsu1125-green)](https://github.com/jameshsu1125/) [![made in Taiwan](https://img.shields.io/badge/Made%20in-Taiwan-orange)](https://github.com/jameshsu1125/)
+
 # Installation
 
 ```
@@ -16,16 +17,16 @@ import { Key } from 'lesca';
 ```javascript
 lesca
  ┣ Loading => import { Loading } from 'lesca';
- ┃    ┗ props => style = 'dark';                          // or 'light'
+ ┃    ┗ props => style = 'dark';                      // or 'light'
  ┣ Qrcode => import { Qrcode } from 'lesca';
- ┃    ┗ props => url = 'https://www.exsample.com';        // <img src='google qrcode url'/>
+ ┃    ┗ props => url = 'https://www.exsample.com';    // <img src='google qrcode url'/>
  ┣ Landscape => import { Landscape } from 'lesca';
- ┃    ┗ props => dw = 750;                                // viewport device-width
+ ┃    ┗ props => dw = 750;                            // viewport device-width
  ┗ InputCapture => import { InputCapture } from 'lesca';
-      ┣ props => txt='button Label';                      // button Label
-      ┣ props => img={ require('buttonImage.png') };      // coustom image button
-      ┣ props => onend={ ( base64 )=>{} };                // success image convert to base64
-      ┗ props => length='500';                            // resize base64 image width
+      ┣ props => txt='button Label';                  // button Label
+      ┣ props => img={ require('buttonImage.png') };  // coustom image button
+      ┣ props => onend={ ( base64 )=>{} };            // success image convert to base64
+      ┗ props => length='500';                        // resize base64 image width
 ```
 
 # Javascripts
@@ -34,9 +35,9 @@ lesca
 lesca
  ┣ Device
  ┃ ┣ Sensor.js => import { Sensor } from 'lesca';
- ┃ ┃   ┣ Sensor.Motion.init({ v = 20, callback }) => callback(e), remove();
- ┃ ┃   ┣ Sensor.Orientation.init({ callback }) => callback(LR, FB, Dir), remove();
- ┃ ┃   ┗ Sensor.OrientationChange.init({ callback }) => callback(ang);
+ ┃ ┃   ┣ Sensor.Motion.init({ v = 20, callback }) => callback(e), Sensor.Motion.destory();
+ ┃ ┃   ┣ Sensor.Orientation.init({ callback }) => callback(LR, FB, Dir), Sensor.Motion.destory();
+ ┃ ┃   ┗ Sensor.OrientationChange.init({ callback }) => callback(ang), Sensor.Motion.destory();
  ┃ ┗ UserAgent.js  => import { UserAgent } from 'lesca';
  ┃ ┃   ┣ UserAgent.get( tabletEqualDesktop = true ) => return 'mobile'; // or 'desktop';
  ┃ ┃   ┣ UserAgent.Wechat.is() => ture/false;

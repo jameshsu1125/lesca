@@ -19,9 +19,7 @@ module.exports = {
 		sync() {
 			if (!this.is) return;
 			this.is = false;
-			let c = Math.abs(
-				this.d.x - this.s.x + this.d.y - this.s.y + this.d.z + this.s.z
-			);
+			let c = Math.abs(this.d.x - this.s.x + this.d.y - this.s.y + this.d.z + this.s.z);
 			if (c > this.g) this.cb(c);
 			this.s = this.d;
 			setTimeout(() => {
@@ -31,7 +29,7 @@ module.exports = {
 		on(e) {
 			console.log(e);
 		},
-		remove() {
+		destory() {
 			window.removeEventListener('devicemotion', this.f);
 			clearInterval(this.i);
 		},
@@ -76,7 +74,7 @@ module.exports = {
 		on(LR, FB, Dir) {
 			console.log(LR, FB, Dir);
 		},
-		remove() {
+		destory() {
 			window.removeEventListener('deviceorientation', this.f);
 		},
 	},
@@ -100,6 +98,9 @@ module.exports = {
 		},
 		on(ang) {
 			console.log(ang);
+		},
+		destory() {
+			window.removeEventListener('orientationchange', this.f);
 		},
 	},
 };

@@ -1,6 +1,6 @@
 {
 	"name": "lesca",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"description": "lesca javascript module",
 	"main": "lib/index.js",
 	"scripts": {
