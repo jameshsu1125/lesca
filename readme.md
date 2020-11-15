@@ -26,15 +26,15 @@ render(){
 }
 ```
 
-|     key      | props  | options & readme                         | default |
-| :----------: | :----: | :--------------------------------------- | :-----: |
-|   Loading    | style  | 'dark', 'light'                          | 'dark'  |
-|    Qrcode    |  url   | return "<img src='google qrcode url' />" |         |
-|  Landscape   |   dw   | viewport device-width,                   |   750   |
-| InputCapture |  txt   | text for buttom label                    |         |
-|              |  img   | "<img src='url'>"                        |         |
-|              | onend  | (result)=>{ console.log(result) }        |         |
-|              | length | resize image width                       |   500   |
+|     key      | props  | options & readme                        | default |
+| :----------: | :----: | :-------------------------------------- | :-----: |
+|   Loading    | style  | 'dark', 'light'                         | 'dark'  |
+|    Qrcode    |  url   | return \<img src='google qrcode url' /> |         |
+|  Landscape   |   dw   | viewport device-width,                  |   750   |
+| InputCapture |  txt   | text for buttom label                   |         |
+|              |  img   | \<img src='url'>                        |         |
+|              | onend  | (result)=>{ console.log(result) }       |         |
+|              | length | resize image width                      |   500   |
 
 # Javascripts
 
