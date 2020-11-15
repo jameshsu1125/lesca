@@ -60,7 +60,9 @@ OrientationChange.init({
 ```javascript
 import { UserAgent } from 'lesca';
 
-if (UserAgent.get() === 'mobile') window.location.href = 'https://m.example.com';
+if (UserAgent.get() === 'mobile') {
+	window.location.href = 'https://m.example.com';
+}
 ```
 
 |    key    |         method          | options & readme             |
@@ -164,8 +166,8 @@ EnterFrame.init(() => {
 
 ```javascript
 import { Hash } from 'lesca';
+// https://www.example.com/?name=james&age=18;
 
-const url = window.location.href; // url = https://www.example.com/?name=james&age=18;
 console.log(Hash.get('name')); //james
 console.log(Hash.get('age')); //18
 ```
