@@ -144,7 +144,7 @@ render(){
 | Dom2Json | (dom)  | DOM convert to Json => { className: innerText } |
 
 ```javascript
-import { Dom2Json } from 'lesca';
+import { EnterFrame } from 'lesca';
 
 this.x = 0;
 EnterFrame.init(() => {
