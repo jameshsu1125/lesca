@@ -193,8 +193,12 @@ class InputCapture extends React.Component {
 export { Qrcode, Loading, Landscape, InputCapture };
 
 import Sensor from './LESCA/Device/Sensor';
+const Motion = Sensor.Motion;
+const Orientation = Sensor.Orientation;
+const OrientationChange = Sensor.OrientationChange;
+
 import UserAgent from './LESCA/Device/UserAgent';
-export { Sensor, UserAgent };
+export { Motion, Orientation, OrientationChange, UserAgent };
 
 import TouchEvent from './LESCA/Event/TouchEvent';
 export { TouchEvent };
