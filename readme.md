@@ -145,6 +145,7 @@ render(){
 
 ```javascript
 import { Dom2Json } from 'lesca';
+
 this.x = 0;
 EnterFrame.init(() => {
 	this.x++;
