@@ -16,6 +16,7 @@ import { key } from 'lesca';
 
 ```javascript
 import { Loading } from 'lesca';
+
 render(){
   return (
     <div>
@@ -39,6 +40,7 @@ render(){
 
 ```javascript
 import { Motion, Orientation, OrientationChange } from 'lesca';
+
 OrientationChange.init({
 	callback: (angle) => {
 		console.log(angle);
@@ -57,6 +59,7 @@ OrientationChange.init({
 
 ```javascript
 import { UserAgent } from 'lesca';
+
 if (UserAgent.get() === 'mobile') window.location.href = 'https://m.example.com';
 ```
 
@@ -71,6 +74,7 @@ if (UserAgent.get() === 'mobile') window.location.href = 'https://m.example.com'
 
 ```javascript
 import { TouchEvent } from 'lesca';
+
 TouchEvent.init(true);
 TouchEvent.add('id', () => {
 	console.log('clicked');
@@ -87,6 +91,7 @@ TouchEvent.add('id', () => {
 
 ```javascript
 import { Facebook } from 'lesca';
+
 Facebook.init('fb-xxxxxxxxx');
 Facebook.share({
 	id: 'fb-xxxxxxxxx',
@@ -106,7 +111,9 @@ Facebook.share({
 
 ```javascript
 import { Gtag } from 'lesca';
+
 Gtag.gtag_install('gtag-xxxxxxxxx');
+Gtag.gtag_pv('home page');
 ```
 
 | key  |               method                | options & readme |
@@ -118,8 +125,7 @@ Gtag.gtag_install('gtag-xxxxxxxxx');
 ```javascript
 import { Dom2Json } from 'lesca';
 
-componentDidMount()
-{
+componentDidMount(){
   var data = Dom2Json(document.querySelector('index'));
   console.log(data);  // return { index:{ title: 'my title' } }
 }
@@ -142,7 +148,7 @@ import { Dom2Json } from 'lesca';
 this.x = 0;
 EnterFrame.init(() => {
 	this.x++;
-	console.log(this.x); // 0, 1, 2 ...
+	console.log(this.x); // => 0, 1, 2 ...
 });
 ```
 
@@ -173,6 +179,7 @@ console.log(Hash.get('age')); //18
 
 ```javascript
 import { Http2Https } from 'lesca';
+
 Http2Https.go();
 ```
 
@@ -182,8 +189,9 @@ Http2Https.go();
 
 ```javascript
 import { LocalStorage } from 'lesca';
+
 LocalStorage.set('name', 'james');
-console.log(LocalStorage.get('name')); // james
+console.log(LocalStorage.get('name')); // => james
 ```
 
 |     key      |     method      | options & readme    |
@@ -198,7 +206,7 @@ console.log(LocalStorage.get('name')); // james
 import { Numbers } from 'lesca';
 
 this.index = 3;
-let image_url = './image-' + Numbers.Pad(this.index, 4) + '.png'; //3 => 0003;
+let image_url = './image-' + Numbers.Pad(this.index, 4) + '.png'; // 3 => 0003;
 <img src={require(image_url)} />;
 ```
 
