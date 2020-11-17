@@ -70,7 +70,7 @@ class Qrcode extends Component {
 	}
 }
 
-import { OrientationChange } from './Sensor';
+const OrientationChange = Sensor.OrientationChange;
 import './Landscape.less';
 class Landscape extends React.Component {
 	constructor(props) {
@@ -176,7 +176,7 @@ class InputCapture extends React.Component {
 
 	append() {
 		if (this.props.img) return <img onClick={this.capture.bind(this)} src={this.props.img} />;
-		else return <button onClick={this.capture.bind(this)}>{this.props.txt ? this.props.txt : 'Capture'}</button>;
+		else return <button onClick={this.capture.bind(this)}>{this.props.txt ? this.props.label : 'Capture'}</button>;
 	}
 
 	render() {
@@ -195,7 +195,6 @@ export { Qrcode, Loading, Landscape, InputCapture };
 import Sensor from './LESCA/Device/Sensor';
 const Motion = Sensor.Motion;
 const Orientation = Sensor.Orientation;
-const OrientationChange = Sensor.OrientationChange;
 
 import UserAgent from './LESCA/Device/UserAgent';
 export { Motion, Orientation, OrientationChange, UserAgent };

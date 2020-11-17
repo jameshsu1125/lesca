@@ -31,9 +31,9 @@ render(){
 |   Loading    | style  | 'dark', 'light'                         | 'dark'  |
 |    Qrcode    |  url   | return \<img src='google qrcode url' /> |         |
 |  Landscape   |   dw   | viewport device-width,                  |   750   |
-| InputCapture |  txt   | text for buttom label                   |         |
-|              |  img   | \<img src='url'>                        |         |
-|              | onend  | (result)=>{ console.log(result) }       |         |
+| InputCapture | label  | text for buttom label                   |         |
+|              |  img   | image button \<img src='url'>           |         |
+|              | onend  | onend = (e) => { console.log(e) }       | base64  |
 |              | length | resize image width                      |   500   |
 
 # Javascripts
@@ -172,13 +172,13 @@ console.log(Hash.get('name')); //james
 console.log(Hash.get('age')); //18
 ```
 
-| key  |      method      | options & readme                                                                      |
-| :--: | :--------------: | :------------------------------------------------------------------------------------ |
-| Hash |     get(key)     | https://www.example.com/?name=james => get('name') => return 'james'                  |
-|      |   remove(key)    | remove key                                                                            |
-|      | removeAndGo(key) | remove key and href to                                                                |
-|      |      root()      | https://www.example.com/folder/success.html => return https://www.example.com/folder/ |
-|      |      file()      | https://www.example.com/folder/success.html => return success.html                    |
+| key  |      method      | options & readme                                                     |
+| :--: | :--------------: | :------------------------------------------------------------------- |
+| Hash |     get(key)     | https://www.example.com/?name=james => get('name') => return 'james' |
+|      |   remove(key)    | remove key                                                           |
+|      | removeAndGo(key) | remove key and href to                                               |
+|      |      root()      | https://.../folder/success.html => return https://.../folder/        |
+|      |      file()      | https://.../folder/success.html => return success.html               |
 
 ```javascript
 import { Http2Https } from 'lesca';
