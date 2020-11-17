@@ -9,7 +9,7 @@ const findDom = (tar, dat) => {
 			let len = $(this).children('div').length;
 			let sty = this.className;
 			let txt = this.innerText;
-			if (len == 0) dat[s][sty] = txt;
+			if (len == 0) dat[s][sty] = txt || true;
 			else self.findDom(this, dat[s]);
 		});
 	}
