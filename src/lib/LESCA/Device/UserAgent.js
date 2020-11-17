@@ -33,7 +33,7 @@ module.exports = {
 
 	Facebook: {
 		is() {
-			var ua = navigator.userAgent || navigator.vendor || window.opera;
+			let ua = navigator.userAgent || navigator.vendor || window.opera;
 			return ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
 		},
 	},
@@ -56,8 +56,22 @@ module.exports = {
 
 	Line: {
 		is() {
-			var ua = navigator.userAgent || navigator.vendor || window.opera;
+			let ua = navigator.userAgent || navigator.vendor || window.opera;
 			return ua.indexOf('Line') > -1 || ua.indexOf('Line') > -1;
+		},
+	},
+
+	Mac: {
+		is() {
+			let ua = navigator.userAgent || navigator.vendor || window.opera;
+			return ua.indexOf('Mac OS X') > -1;
+		},
+	},
+
+	PC: {
+		is() {
+			let ua = navigator.userAgent || navigator.vendor || window.opera;
+			return ua.indexOf('Mac OS X') < 0;
 		},
 	},
 };
