@@ -78,6 +78,8 @@ if (UserAgent.get() === 'mobile') {
 |           |      Android.is()       | ture/false                   |
 |           |        Line.is()        | ture/false                   |
 
+## TouchEvent
+
 ```javascript
 import { TouchEvent } from 'lesca';
 
@@ -94,6 +96,8 @@ TouchEvent.add('id', () => {
 |            |          remove(id = 'ID')           | remove fn by id    |
 |            |               clear()                | remove all fn      |
 |            |              destory()               | remove event       |
+
+## Facebook
 
 ```javascript
 import { Facebook } from 'lesca';
@@ -115,6 +119,8 @@ Facebook.share({
 |          |                              logout()                               | facebook logout     |
 |          |               share({ id, redirect_uri, url, hash })                | facebook share      |
 
+## Gtag
+
 ```javascript
 import { Gtag } from 'lesca';
 
@@ -127,6 +133,8 @@ Gtag.gtag_pv('home page');
 | Gtag |          gtag_install(gid)          | run once         |
 |      |           gtag_pv(title)            | add page view    |
 |      | gtag_event(title, description = '') | add click event  |
+
+## Dom2Json
 
 ```javascript
 import { Dom2Json } from 'lesca';
@@ -149,6 +157,8 @@ render(){
 | :------: | :----: | :---------------------------------------------- |
 | Dom2Json | (dom)  | DOM convert to Json => { className: innerText } |
 
+## EnterFrame
+
 ```javascript
 import { EnterFrame } from 'lesca';
 
@@ -168,6 +178,8 @@ EnterFrame.init(() => {
 |            | getTime() | get millisecond of time       |
 |            | destroy() | remove event                  |
 
+## Hash
+
 ```javascript
 import { Hash } from 'lesca';
 // https://www.example.com/?name=james&age=18;
@@ -184,6 +196,8 @@ console.log(Hash.get('age')); //18
 |      |      root()      | https://.../folder/success.html => return https://.../folder/        |
 |      |      file()      | https://.../folder/success.html => return success.html               |
 
+## Http2Https
+
 ```javascript
 import { Http2Https } from 'lesca';
 
@@ -193,6 +207,8 @@ Http2Https.go();
 |    key     | method | options & readme                                    |
 | :--------: | :----: | :-------------------------------------------------- |
 | Http2Https |   go   | http://www.example.com/ => https://www.example.com/ |
+
+## LocalStorage
 
 ```javascript
 import { LocalStorage } from 'lesca';
@@ -208,6 +224,8 @@ console.log(LocalStorage.get('name')); // => james
 |              |   remove(key)   | delete key          |
 |              |     clear()     | clear all key       |
 |              |   printAll()    | log all key         |
+
+## Numbers
 
 ```javascript
 import { Numbers } from 'lesca';
