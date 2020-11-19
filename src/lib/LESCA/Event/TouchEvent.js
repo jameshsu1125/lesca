@@ -27,19 +27,34 @@ module.exports = {
 		else return 'desktop';
 	},
 	get(e) {
-		if (!this.db[e.target.id]) return;
-		this.db[e.target.id](e);
+		let key = e.target.id + '_id';
+		if (this.db[key]) {
+			this.db[key](e);
+			return;
+		}
+
+		key = e.target.className + '_class';
+		if (this.db[key]) {
+			this.db[key](e);
+			return;
+		}
 	},
 	add(
-		id = 'ID',
+		query = '#ID',
 		fn = function () {
 			console.log('cb');
 		}
 	) {
-		this.db[id] = fn;
+		let type = query.slice(0, 1) == '.' ? '_class' : '_id';
+		let name = query.slice(1);
+		let key = name + type;
+		this.db[key] = fn;
 	},
-	remove(id = 'ID') {
-		delete this.db[id];
+	remove(query = '#ID') {
+		let type = query.slice(0, 1) == '.' ? '_class' : '_id';
+		let name = query.slice(1);
+		let key = name + type;
+		delete this.db[key];
 	},
 	clear() {
 		this.db = {};

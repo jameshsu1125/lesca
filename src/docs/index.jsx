@@ -1,11 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Qrcode, Sensor, InputCapture } from '../../lib';
+import { Dom2Json } from '../../lib';
 import './styles.css';
 
-console.log(Sensor);
+var s = Dom2Json(document.querySelector('.index'));
+console.log(s);
 function Demo() {
-	return <InputCapture />;
+	return (
+		<div className='index'>
+			<div className='aaa'>asdasd</div>
+			<div className='bbb'>bbb</div>
+		</div>
+	);
 }
 
 render(<Demo />, document.getElementById('app'));

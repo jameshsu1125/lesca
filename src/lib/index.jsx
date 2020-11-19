@@ -200,6 +200,7 @@ import UserAgent from './LESCA/Device/UserAgent';
 export { Motion, Orientation, OrientationChange, UserAgent };
 
 import TouchEvent from './LESCA/Event/TouchEvent';
+window.TouchEvent = TouchEvent;
 export { TouchEvent };
 
 import Facebook from './LESCA/Social/Facebook';
