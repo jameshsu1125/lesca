@@ -6,9 +6,8 @@ module.exports = {
 			if (e.cancelable) if (!e.defaultPrevented) if (n != 'input' && n != 'button' && n != 'select') e.preventDefault();
 			this.get(e);
 		}.bind(this);
+
 		if (needDesktopEventCombine) {
-			document.addEventListener('mousedown', this.fn);
-		} else {
 			if (this.device() == 'mobile') {
 				document.addEventListener('touchstart', this.fn, {
 					passive: false,
@@ -16,6 +15,13 @@ module.exports = {
 				});
 			} else {
 				document.addEventListener('mousedown', this.fn);
+			}
+		} else {
+			if (this.device() == 'mobile') {
+				document.addEventListener('touchstart', this.fn, {
+					passive: false,
+					capture: false,
+				});
 			}
 		}
 	},
