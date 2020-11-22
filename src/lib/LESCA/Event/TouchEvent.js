@@ -1,9 +1,10 @@
 module.exports = {
 	db: {},
+	preventDefault: true,
 	init(needDesktopEventCombine = true) {
 		this.fn = function (e) {
 			let n = e.target.localName;
-			if (e.cancelable) if (!e.defaultPrevented) if (n != 'input' && n != 'button' && n != 'select') e.preventDefault();
+			if (e.cancelable && !e.defaultPrevented && this.preventDefault) if (n != 'input' && n != 'button' && n != 'select') e.preventDefault();
 			this.get(e);
 		}.bind(this);
 
