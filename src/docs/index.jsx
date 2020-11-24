@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Dom2Json } from '../../lib';
+import { Dom2Json, Loading } from '../../lib';
 import './styles.css';
 
 var s = Dom2Json(document.querySelector('.index'));
@@ -10,6 +10,7 @@ function Demo() {
 		<div className='index'>
 			<div className='aaa'>asdasd</div>
 			<div className='bbb'>bbb</div>
+			<Loading />
 		</div>
 	);
 }

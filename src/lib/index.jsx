@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './loading.less';
 
 class Loading extends Component {
 	constructor(props) {
 		super(props);
+		require('./loading.less');
 
 		this.class = this.props.style ? ` ${this.props.style}` : ' dark';
 		this.txtClass = this.props.style ? ` t${this.props.style}` : ' tdark';
@@ -71,10 +71,11 @@ class Qrcode extends Component {
 }
 
 const OrientationChange = Sensor.OrientationChange;
-import './Landscape.less';
+
 class Landscape extends React.Component {
 	constructor(props) {
 		super(props);
+		require('./Landscape.less');
 		this.state = { show: false };
 	}
 	componentDidMount() {
@@ -97,11 +98,11 @@ class Landscape extends React.Component {
 }
 
 import EXIF from 'exif-js';
-import './inputCapture.less';
 
 class InputCapture extends React.Component {
 	constructor(props) {
 		super(props);
+		require('./inputCapture.less');
 	}
 	set({ file, length = this.props.length || 500, cb }) {
 		var root = this;
