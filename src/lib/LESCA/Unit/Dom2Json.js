@@ -18,6 +18,19 @@ const findDom = (tar, dat) => {
 					});
 				txt = op;
 			}
+			let a = $(this).children('a').length;
+			if (a > 0) {
+				let op = [];
+				$(this)
+					.children('a')
+					.each(function () {
+						op.push({
+							name: this.innerText,
+							url: this.getAttribute('href'),
+						});
+					});
+				txt = op;
+			}
 
 			if (len == 0) dat[s][sty] = txt || true;
 			else findDom(this, dat[s]);
