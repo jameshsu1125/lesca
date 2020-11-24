@@ -32,6 +32,12 @@ const findDom = (tar, dat) => {
 				txt = op;
 			}
 
+			if (len == 0) {
+				let sup = $(this).children('sup').length;
+				let sub = $(this).children('sub').length;
+				if (sup > 0 || sub > 0) txt = $(this).html();
+			}
+
 			if (len == 0) dat[s][sty] = txt || true;
 			else findDom(this, dat[s]);
 		});
