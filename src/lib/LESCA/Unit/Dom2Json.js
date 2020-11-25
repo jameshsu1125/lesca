@@ -24,10 +24,19 @@ const findDom = (tar, dat) => {
 				$(this)
 					.children('a')
 					.each(function () {
-						op.push({
-							name: this.innerText,
-							url: this.getAttribute('href'),
-						});
+						let isImg = $(this).children('img').length > 0;
+						if (isImg) {
+							let img = $(this).children('img')[0].getAttribute('src');
+							op.push({
+								url: this.getAttribute('href'),
+								img: img,
+							});
+						} else {
+							op.push({
+								name: this.innerText,
+								url: this.getAttribute('href'),
+							});
+						}
 					});
 				txt = op;
 			}
