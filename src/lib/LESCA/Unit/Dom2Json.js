@@ -47,8 +47,13 @@ const findDom = (tar, dat) => {
 				if (sup > 0 || sub > 0) txt = $(this).html();
 			}
 
-			if (len == 0) dat[s][sty] = txt || true;
-			else findDom(this, dat[s]);
+			if (len == 0) {
+				let isImg = $(this).children('img').length > 0;
+				if (isImg) {
+					txt = $(this).children('img')[0].getAttribute('src');
+				}
+				dat[s][sty] = txt || true;
+			} else findDom(this, dat[s]);
 		});
 	}
 };
