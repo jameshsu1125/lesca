@@ -14,7 +14,7 @@ const findDom = (tar, dat) => {
 				$(this)
 					.children('p')
 					.each(function () {
-						op.push(this.innerText);
+						op.push($(this).html());
 					});
 				txt = op;
 			}

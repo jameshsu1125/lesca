@@ -10,7 +10,14 @@ function Demo() {
 		<div className='index'>
 			<div className='aaa'>asdasd</div>
 			<div className='bbb'>bbb</div>
-			<Loading />
+			<div className='ccc'>
+				<p>Up to the latest GeForce RTX™ 3080 GPU</p>
+				<p>
+					PCIe<sup>®</sup> 3.0 x8 plug with up to 7.88GB/s max. bandwidth
+				</p>
+				<p>1kg ultralight design</p>
+				<p>Integrated 280W adapter and multi-port hub</p>
+			</div>
 		</div>
 	);
 }
