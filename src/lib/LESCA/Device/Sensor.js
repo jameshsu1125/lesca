@@ -5,13 +5,51 @@ module.exports = {
 			this.is = true;
 			this.g = v;
 			this.cb = callback || this.on;
-			if (typeof window.DeviceMotionEvent !== 'undefined') {
-				this.f = this.call.bind(this);
+
+			this.f = this.call.bind(this);
+
+			if (typeof DeviceMotionEvent.requestPermission === 'function') {
+				DeviceMotionEvent.requestPermission()
+					.then((permissionState) => {
+						if (permissionState === 'granted') {
+							window.addEventListener('devicemotion', this.f);
+							this.i = setInterval(() => {
+								this.sync();
+							}, 100);
+						} else {
+							alert('Permission denied');
+						}
+					})
+					.catch(console.error);
+			} else {
 				window.addEventListener('devicemotion', this.f);
 				this.i = setInterval(() => {
 					this.sync();
 				}, 100);
-			} else this.error();
+			}
+
+			// if (typeof DeviceMotionEvent.requestPermission === 'function') {
+			// 	DeviceOrientationEvent.requestPermission()
+			// 		.then((response) => {
+			// 			alert(response);
+			// 			if (response == 'granted') {
+			// 				window.addEventListener('devicemotion', this.f);
+			// 				this.i = setInterval(() => {
+			// 					this.sync();
+			// 				}, 100);
+			// 			} else {
+			// 				alert('Permission denied');
+			// 			}
+			// 		})
+			// 		.catch(console.error);
+			// } else {
+			// 	if (typeof window.DeviceMotionEvent !== 'undefined') {
+			// 		window.addEventListener('devicemotion', this.f);
+			// 		this.i = setInterval(() => {
+			// 			this.sync();
+			// 		}, 100);
+			// 	} else this.error();
+			// }
 		},
 		call(e) {
 			this.d = e.accelerationIncludingGravity;
