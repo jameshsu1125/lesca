@@ -27,29 +27,6 @@ module.exports = {
 					this.sync();
 				}, 100);
 			}
-
-			// if (typeof DeviceMotionEvent.requestPermission === 'function') {
-			// 	DeviceOrientationEvent.requestPermission()
-			// 		.then((response) => {
-			// 			alert(response);
-			// 			if (response == 'granted') {
-			// 				window.addEventListener('devicemotion', this.f);
-			// 				this.i = setInterval(() => {
-			// 					this.sync();
-			// 				}, 100);
-			// 			} else {
-			// 				alert('Permission denied');
-			// 			}
-			// 		})
-			// 		.catch(console.error);
-			// } else {
-			// 	if (typeof window.DeviceMotionEvent !== 'undefined') {
-			// 		window.addEventListener('devicemotion', this.f);
-			// 		this.i = setInterval(() => {
-			// 			this.sync();
-			// 		}, 100);
-			// 	} else this.error();
-			// }
 		},
 		call(e) {
 			this.d = e.accelerationIncludingGravity;

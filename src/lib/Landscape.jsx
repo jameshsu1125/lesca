@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const OrientationChange = Sensor.OrientationChange;
+import { OrientationChange } from './LESCA/Device/Sensor';
 
 class Landscape extends React.Component {
 	constructor(props) {
