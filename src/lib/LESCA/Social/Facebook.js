@@ -1,7 +1,7 @@
 const Facebook = require('./../Device/UserAgent').Facebook;
 
 module.exports = {
-	init(uid, { v = 'v8.0', callback = () => {}, onStatus = () => {} }) {
+	init(uid, { v = 'v8.0', callback, onStatus }) {
 		const self = this;
 		this.id = uid;
 		this.is = false;
@@ -15,8 +15,8 @@ module.exports = {
 				version: v,
 			});
 			self.is = true;
-			callback();
-			self.status();
+			if (callback) callback();
+			if (onStatus) self.status();
 		};
 		(function (d, s, id) {
 			var js,
@@ -39,12 +39,12 @@ module.exports = {
 
 			switch (e.status) {
 				case 'not_authorized':
-					//console.log('未認證');
+					console.log('未認證');
 					this.login();
 					break;
 
 				case 'connected':
-					//console.log('已認證/已登入');
+					console.log('已認證/已登入');
 					FB.api('/me', { fields: 'id,name,email,picture.width(800).height(800)' }, (response) => {
 						this.response = response;
 						this.onStatus(response);
@@ -52,8 +52,8 @@ module.exports = {
 					break;
 
 				case 'unknown':
-					//console.log('未登入');
-					this.login();
+					console.log('未登入');
+					this.login(() => {});
 					break;
 			}
 		});
