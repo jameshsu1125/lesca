@@ -15,7 +15,7 @@ import { key } from 'lesca';
 # UI Components
 
 ```javascript
-import { Loading } from 'lesca';
+import { Loading } from 'lesca/lib/UI';
 
 render(){
   return (
@@ -118,6 +118,18 @@ Facebook.share({
 |          |                               login()                               | facebook login      |
 |          |                              logout()                               | facebook logout     |
 |          |               share({ id, redirect_uri, url, hash })                | facebook share      |
+
+## Line
+
+```javascript
+import { Line } from 'lesca';
+
+Line.share('http://your-domin.com', 'your message');
+```
+
+| key  |       method        | options & readme |
+| :--: | :-----------------: | :--------------- |
+| Line | share(url, message) | line Share       |
 
 ## Gtag
 

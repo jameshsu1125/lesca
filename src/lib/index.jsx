@@ -12,7 +12,8 @@ export { TouchEvent };
 
 import Facebook from './LESCA/Social/Facebook';
 import Gtag from './LESCA/Social/Gtag';
-export { Facebook, Gtag };
+import Line from './LESCA/Social/Line';
+export { Facebook, Gtag, Line };
 
 import EnterFrame from './LESCA/Unit/EnterFrame';
 import Hash from './LESCA/Unit/Hash';
