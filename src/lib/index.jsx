@@ -21,5 +21,6 @@ import Http2Https from './LESCA/Unit/Http2https';
 import LocalStorage from './LESCA/Unit/LocalStorage';
 import Numbers from './LESCA/Unit/Numbers';
 import Dom2Json from './LESCA/Unit/Dom2Json';
+import CDN from './LESCA/Unit/CDN';
 
-export { EnterFrame, Hash, Http2Https, LocalStorage, Numbers, Dom2Json };
+export { EnterFrame, Hash, Http2Https, LocalStorage, Numbers, Dom2Json, CDN };

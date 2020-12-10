@@ -12,6 +12,10 @@ module.exports = {
 			{ test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
 			{ test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
 			{ test: /\.less$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'] },
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+				use: [{ loader: 'file-loader', options: { name: 'img/[path][name].[ext]', context: 'src/docs' } }],
+			},
 		],
 	},
 	plugins: [

@@ -1,4 +1,4 @@
-export const gtag_install = (gid) => {
+const install = (gid) => {
 	const scriptId = 'ga-gtag';
 	window.gtagID = window.gtagID || gid;
 
@@ -18,11 +18,11 @@ export const gtag_install = (gid) => {
 	gtag('config', gid);
 };
 
-export const gtag = function () {
+const gtag = function () {
 	window.dataLayer.push(arguments);
 };
 
-export const gtag_pv = function (title, gid) {
+const pv = function (title, gid) {
 	let id = window.gtagID || gid;
 	if (!id) return;
 	if (!gtag) return;
@@ -32,10 +32,15 @@ export const gtag_pv = function (title, gid) {
 	});
 };
 
-export const gtag_event = function (title, description = '') {
+const event = function (title, description = '') {
 	if (!gtag) return;
 	gtag('event', 'click', {
 		event_category: title,
 		event_label: description,
 	});
+};
+module.exports = {
+	install,
+	pv,
+	event,
 };
