@@ -16,7 +16,7 @@ class Qrcode extends Component {
 		var url = encodeURIComponent(this.props.url),
 			w = this.props.width || 500,
 			h = this.props.height || 500;
-		return `http://chart.apis.google.com/chart?cht=qr&chl=${url}}&chs=${w}x${h}`;
+		return `http://chart.apis.google.com/chart?cht=qr&chl=${url}&chs=${w}x${h}`;
 	}
 	render() {
 		return <img ref='img' width={this.props.width} height={this.props.height} />;
