@@ -140,11 +140,11 @@ Gtag.gtag_install('gtag-xxxxxxxxx');
 Gtag.gtag_pv('home page');
 ```
 
-| key  |               method                | options & readme |
-| :--: | :---------------------------------: | :--------------- |
-| Gtag |          gtag_install(gid)          | run once         |
-|      |           gtag_pv(title)            | add page view    |
-|      | gtag_event(title, description = '') | add click event  |
+| key  |             method             | options & readme |
+| :--: | :----------------------------: | :--------------- |
+| Gtag |          install(gid)          | run once         |
+|      |           pv(title)            | add page view    |
+|      | event(title, description = '') | add click event  |
 
 ## Dom2Json
 
@@ -251,3 +251,18 @@ let image_url = './image-' + Numbers.Pad(this.index, 4) + '.png'; // 3 => 0003;
 | :-----: | :-----------------: | :--------------------------------- |
 | Numbers | Pad(number, length) | Pad(20, 4) => return '0020'        |
 |         |     Uid(length)     | Uid(6) => return 'JsPa3d' //random |
+
+## CDN
+
+```javascript
+import { CDN } from 'lesca';
+
+//install your CDN url
+CDN.install('https://www.file-station.com');
+CDN.path(require('./img/bg.jpg'));
+```
+
+| key |     method     | options & readme          |
+| :-: | :------------: | :------------------------ |
+| CDN | install( URL ) | run once                  |
+|     |      path      | relative path => cdn path |
