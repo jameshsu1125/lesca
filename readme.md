@@ -107,7 +107,7 @@ Facebook.share({
 	id: 'fb-xxxxxxxxx',
 	redirect_uri: 'https://www.example.com/success.html',
 	url: 'https://www.example.com/',
-	hash: 'myHashTag',
+	hashtag: 'myHashTag',
 });
 ```
 
@@ -117,7 +117,7 @@ Facebook.share({
 |          |                              status()                               | get facebook status |
 |          |                               login()                               | facebook login      |
 |          |                              logout()                               | facebook logout     |
-|          |               share({ id, redirect_uri, url, hash })                | facebook share      |
+|          |          share({ id, redirect_uri, url, hashtag, quote })           | facebook share      |
 
 ## Line
 

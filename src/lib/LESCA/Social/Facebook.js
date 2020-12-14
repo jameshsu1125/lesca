@@ -66,19 +66,21 @@ module.exports = {
 			console.log(e);
 		});
 	},
-	share({ id, redirect_uri, url, hash }) {
+	share({ id, redirect_uri, url, hashtag, quote }) {
 		if (Facebook.is()) {
 			let p = {
 				method: 'share',
 				href: url,
 			};
-			if (hash) p.hashtag = '#' + hash;
+			if (hashtag) p.hashtag = '#' + hashtag;
+			if (quote) p.quote = quote;
 			FB.ui(p, function (response) {
 				window.location.replace(redirect_uri);
 			});
 		} else {
 			let u = `https://www.facebook.com/dialog/share?app_id=${id}&href=${encodeURIComponent(url)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
-			if (hash) u += `&hashtag=%23${encodeURIComponent(hash)}`;
+			if (hashtag) u += `&hashtag=%23${encodeURIComponent(hashtag)}`;
+			if (quote) u += `&quote=${quote}`;
 			window.location.href = u;
 		}
 	},
