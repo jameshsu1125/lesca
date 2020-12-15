@@ -1,50 +1,81 @@
+const UserAgent = require('./UserAgent');
+
 module.exports = {
 	Motion: {
-		init({ v = 20, callback }) {
-			this.d = this.s = { x: 0, y: 0, z: 0 };
-			this.is = true;
-			this.g = v;
-			this.cb = callback || this.on;
+		is: true,
+		each_time: 1,
+		delayCallback: 1000,
+		disable: true,
+		init(ready) {
+			if (UserAgent.get() === 'desktop') {
+				//desktop escap all
+				this.error();
+				return false;
+			}
 
-			this.f = this.call.bind(this);
+			this.ready = ready;
 
 			if (typeof DeviceMotionEvent.requestPermission === 'function') {
+				// IOS 14+
+
+				if (window.location.protocol.indexOf('https') < 0) {
+					// SSL require
+					this.error();
+					return false;
+				}
+
 				DeviceMotionEvent.requestPermission()
 					.then((permissionState) => {
-						if (permissionState === 'granted') {
-							window.addEventListener('devicemotion', this.f);
-							this.i = setInterval(() => {
-								this.sync();
-							}, 100);
-						} else {
-							alert('Permission denied');
-						}
+						if (permissionState === 'granted') this.ready();
+						else alert('permission denied!');
 					})
 					.catch(console.error);
-			} else {
-				window.addEventListener('devicemotion', this.f);
-				this.i = setInterval(() => {
-					this.sync();
-				}, 100);
-			}
+			} else this.ready();
+		},
+		addEvent(v = 20, callback) {
+			this.f = this.call.bind(this);
+			this.cb = callback || this.on;
+			this.g = v;
+			this.d = this.d2 = { x: 0, y: 0, z: 0 };
+			this.is = true;
+			window.addEventListener('devicemotion', this.f);
+			this.i = setInterval(() => {
+				this.sync();
+			}, this.each_time);
 		},
 		call(e) {
 			this.d = e.accelerationIncludingGravity;
 		},
 		sync() {
-			if (!this.is) return;
-			this.is = false;
-			let c = Math.abs(this.d.x - this.s.x + this.d.y - this.s.y + this.d.z + this.s.z);
-			if (c > this.g) this.cb(c);
-			this.s = this.d;
-			setTimeout(() => {
-				this.is = true;
-			}, 300);
+			if (!this.disable) return;
+
+			let x = Math.abs(this.d.x - this.d2.x),
+				y = Math.abs(this.d.y - this.d2.y),
+				z = Math.abs(this.d.z - this.d2.z),
+				c = Math.abs(x + y + z);
+
+			if (c > this.g) {
+				if (!this.is) return;
+				this.is = false;
+				this.cb(c);
+				this.d2 = this.d = { x: 0, y: 0, z: 0 };
+				setTimeout(() => {
+					this.is = true;
+				}, this.delayCallback);
+			}
+
+			this.d2 = this.d;
 		},
 		on(e) {
 			console.log(e);
 		},
 		destory() {
+			this.d = this.d2 = {
+				x: 0,
+				y: 0,
+				z: 0,
+			};
+			this.is = false;
 			window.removeEventListener('devicemotion', this.f);
 			clearInterval(this.i);
 		},
