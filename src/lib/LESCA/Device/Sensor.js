@@ -6,7 +6,7 @@ module.exports = {
 		each_time: 1,
 		delayCallback: 1000,
 		disable: true,
-		init(ready) {
+		init(ready, norequire = () => {}) {
 			if (UserAgent.get() === 'desktop') {
 				//desktop escap all
 				this.error();
@@ -27,7 +27,7 @@ module.exports = {
 				DeviceMotionEvent.requestPermission()
 					.then((permissionState) => {
 						if (permissionState === 'granted') this.ready();
-						else alert('permission denied!');
+						else norequire();
 					})
 					.catch(console.error);
 			} else this.ready();
