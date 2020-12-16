@@ -41,7 +41,7 @@ render(){
 ## Motion
 
 ```javascript
-import Motion from 'lesca-sensor-motion';
+import Motion from 'lesca';
 
 function require_permission() {
 	Motion.init(
