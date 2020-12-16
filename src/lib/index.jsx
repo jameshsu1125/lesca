@@ -1,5 +1,5 @@
 import Sensor from './LESCA/Device/Sensor';
-const Motion = Sensor.Motion;
+import Motion from 'lesca-sensor-motion';
 const Orientation = Sensor.Orientation;
 const OrientationChange = Sensor.OrientationChange;
 

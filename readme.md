@@ -38,10 +38,18 @@ render(){
 
 # Javascripts
 
-## Motion, Orientation, OrientationChange
+## Motion
 
 ```javascript
-import { Motion, Orientation, OrientationChange } from 'lesca';
+import { Motion } from 'lesca';
+```
+
+- [readme](https://github.com/jameshsu1125/lesca-sensor-motion/blob/main/readme.md)
+
+## Orientation, OrientationChange
+
+```javascript
+import { Orientation, OrientationChange } from 'lesca';
 
 OrientationChange.init({
 	callback: (angle) => {
@@ -52,8 +60,6 @@ OrientationChange.init({
 
 |              key               |               method                | options & readme        |
 | :----------------------------: | :---------------------------------: | :---------------------- |
-|             Motion             |  init({ v = 20, callback=(e)=>{}})  | get devicemotion force  |
-|                                |              destory()              | remove                  |
 | Orientation(ios not supperted) | init({ callback:(LR, FB, Dir)=>{}}) | get 3 dir rotate values |
 |                                |              destory()              | remove                  |
 |       OrientationChange        |    init({ callback:(angle)=>{}})    | get 90 -90 0            |

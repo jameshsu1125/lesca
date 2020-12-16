@@ -12,7 +12,7 @@ function openLine() {
 function Demo() {
 	var u = require('./meta-img.jpg');
 	CDN.install('https://google.com');
-	console.log(Gtag);
+	console.log(Motion);
 	console.log(CDN.path(u));
 	return (
 		<div className='main'>
