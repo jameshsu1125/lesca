@@ -44,18 +44,18 @@ render(){
 import { Motion } from 'lesca';
 
 function require_permission() {
-  Motion.init(
-    function () {
-      console.log('permission granted');
-      Motion.addEvent(20, (e) => {
-        // shake your mobile device. alert the gravity directly.
-        alert(e);
-      });
-    },
-    function () {
-      console.log('permission deined');
-    }
-  );
+	Motion.init(
+		function () {
+			console.log('permission granted');
+			Motion.addEvent(20, (e) => {
+				// shake your mobile device. alert the gravity directly.
+				alert(e);
+			});
+		},
+		function () {
+			console.log('permission deined');
+		}
+	);
 }
 
 <button onClick={require_permission}></button>;
@@ -69,9 +69,9 @@ function require_permission() {
 import { Orientation, OrientationChange } from 'lesca';
 
 OrientationChange.init({
-  callback: (angle) => {
-    console.log(angle);
-  },
+	callback: (angle) => {
+		console.log(angle);
+	},
 });
 ```
 
@@ -88,7 +88,7 @@ OrientationChange.init({
 import { UserAgent } from 'lesca';
 
 if (UserAgent.get() === 'mobile') {
-  window.location.href = 'https://m.example.com';
+	window.location.href = 'https://m.example.com';
 }
 ```
 
@@ -108,7 +108,7 @@ import { TouchEvent } from 'lesca';
 
 TouchEvent.init(true);
 TouchEvent.add('id', () => {
-  console.log('clicked');
+	console.log('clicked');
 });
 ```
 
@@ -127,10 +127,10 @@ import { Facebook } from 'lesca';
 
 Facebook.init('fb-xxxxxxxxx');
 Facebook.share({
-  id: 'fb-xxxxxxxxx',
-  redirect_uri: 'https://www.example.com/success.html',
-  url: 'https://www.example.com/',
-  hashtag: 'myHashTag',
+	id: 'fb-xxxxxxxxx',
+	redirect_uri: 'https://www.example.com/success.html',
+	url: 'https://www.example.com/',
+	hashtag: 'myHashTag',
 });
 ```
 
@@ -199,8 +199,8 @@ import { EnterFrame } from 'lesca';
 
 this.x = 0;
 EnterFrame.init(() => {
-  this.x++;
-  console.log(this.x); // => 0, 1, 2 ...
+	this.x++;
+	console.log(this.x); // => 0, 1, 2 ...
 });
 ```
 
