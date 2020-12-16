@@ -41,7 +41,24 @@ render(){
 ## Motion
 
 ```javascript
-import { Motion } from 'lesca';
+import Motion from 'lesca-sensor-motion';
+
+function require_permission() {
+	Motion.init(
+		function () {
+			console.log('permission granted');
+			Motion.addEvent(20, (e) => {
+				// shake your mobile device. alert the gravity directly.
+				alert(e);
+			});
+		},
+		function () {
+			console.log('permission deined');
+		}
+	);
+}
+
+<button onClick={require_permission}></button>;
 ```
 
 - [readme](https://github.com/jameshsu1125/lesca-sensor-motion/blob/main/readme.md)
