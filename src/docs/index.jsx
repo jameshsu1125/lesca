@@ -5,6 +5,8 @@ import { Landscape } from '../../lib/UI';
 import './styles.css';
 
 var s = Dom2Json(document.querySelector('.index'));
+console.log(s);
+
 function openLine() {
 	Line.share('https://www.google.com', 'xxxx');
 }
@@ -12,8 +14,8 @@ function openLine() {
 function Demo() {
 	var u = require('./meta-img.jpg');
 	CDN.install('https://google.com');
-	console.log(Motion);
-	console.log(CDN.path(u));
+	// console.log(Motion);
+	// console.log(CDN.path(u));
 	return (
 		<div className='main'>
 			<button onClick={openLine.bind(this)}>Line</button>
