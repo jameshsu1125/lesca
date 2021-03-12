@@ -52,10 +52,15 @@ module.exports = {
 			} else this.error();
 		},
 		call(e) {
-			var angle;
-			if (window.orientation != undefined) angle = window.orientation;
-			else angle = screen.orientation.angle;
-			this.cb(angle);
+			try {
+				var angle;
+				if (window.orientation != undefined) angle = window.orientation;
+				else angle = screen.orientation.angle;
+				this.cb(angle);
+			} catch {
+				console.log('ie11');
+				this.cb(0);
+			}
 		},
 		error() {
 			console.log('orientationchnage not support!');
